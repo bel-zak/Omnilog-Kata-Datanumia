@@ -7,16 +7,23 @@ import yatzy.refactoring.scorers.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+/**
+ * Classe principale qui implémente le calcul des scores de Yatzy.
+ * Elle utilise des calculateurs de catégories spécifiques pour chaque catégorie de score.
+ */
 public class YatzyCalculatorImpl implements IYatzyCalculator {
 
     private final Map<YatzyCategory, CategoryScorer> scorers;
-
+    /**
+     * Constructeur qui initialise les calculateurs de score pour chaque catégorie de Yatzy.
+     */
     public YatzyCalculatorImpl() {
         scorers = new HashMap<>();
         initializeScorers();
     }
-
+    /**
+     * Initialise les calculateurs de score pour chaque catégorie.
+     */
     private void initializeScorers() {
         scorers.put(YatzyCategory.CHANCE, new ChanceScorer());
         scorers.put(YatzyCategory.FULL_HOUSE, new FullHouseScorer());

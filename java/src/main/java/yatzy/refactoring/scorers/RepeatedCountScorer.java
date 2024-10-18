@@ -1,12 +1,20 @@
 package yatzy.refactoring.scorers;
 
-import java.util.Arrays;
+
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Classe qui calcule le score basé sur un nombre d'occurrences spécifique.
+ * Le score est la valeur du nombre multipliée par le nombre d'occurrences.
+ */
 public class RepeatedCountScorer extends CategoryScorer {
     private final int count;
-
+    /**
+     * Constructeur qui définit le nombre d'occurrences à vérifier.
+     *
+     * @param count Le nombre d'occurrences requis pour le score.
+     */
     public RepeatedCountScorer(int count) {
         this.count = count;
     }
