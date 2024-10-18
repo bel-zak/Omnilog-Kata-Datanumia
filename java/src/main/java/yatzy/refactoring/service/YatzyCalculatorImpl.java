@@ -50,4 +50,25 @@ public class YatzyCalculatorImpl implements IYatzyCalculator {
         }
         return scorer.calculateScore(dice);
     }
+
+    /**
+     * Trouve la meilleure catégorie à jouer en fonction des dés donnés.
+     *
+     * @param dice Les dés utilisés dans le jeu sous forme de liste d'entiers.
+     * @return La catégorie Yatzy avec le score le plus élevé.
+     */
+    public YatzyCategory getBestCategory(List<Integer> dice) {
+        YatzyCategory bestCategory = null;
+        int highestScore = 0;
+
+        for (Map.Entry<YatzyCategory, CategoryScorer> entry : scorers.entrySet()) {
+            int score = entry.getValue().calculateScore(dice);
+            if (score > highestScore) {
+                highestScore = score;
+                bestCategory = entry.getKey();
+            }
+        }
+
+        return bestCategory;
+    }
 }
